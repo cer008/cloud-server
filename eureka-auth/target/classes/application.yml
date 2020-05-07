@@ -1,0 +1,19 @@
+server:
+  port: 8003
+spring:
+  application:
+    name: eureka-client-auth
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka/
+
+jwt:
+  tokenHeader: Authorization #JWT�洢������ͷ
+  secret: mySecret #JWT�ӽ���ʹ�õ���Կ
+  expiration: 604800 #JWT�ĳ�����ʱ��(60*60*24)
+  tokenHead: Bearer  #JWT�������õ���ͷ
+
+weChat:
+  appid: wx8107a41cd673ced0
+  secret: 15bfbab49733741ebb286b84bc21004d

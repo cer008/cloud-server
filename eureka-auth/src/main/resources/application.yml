@@ -1,0 +1,19 @@
+server:
+  port: 8003
+spring:
+  application:
+    name: eureka-client-auth
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka/
+
+jwt:
+  tokenHeader: Authorization #JWT存储的请求头
+  secret: mySecret #JWT加解密使用的密钥
+  expiration: 604800 #JWT的超期限时间(60*60*24)
+  tokenHead: Bearer  #JWT负载中拿到开头
+
+weChat:
+  appid: wx8107a41cd673ced0
+  secret: 15bfbab49733741ebb286b84bc21004d
