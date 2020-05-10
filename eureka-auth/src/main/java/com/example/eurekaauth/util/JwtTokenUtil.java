@@ -1,6 +1,6 @@
 package com.example.eurekaauth.util;
 
-import com.example.eurekaauth.vo.User;
+import com.example.eurekaauth.entity.AuthUser;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -110,9 +110,9 @@ public class JwtTokenUtil
     /**
      * 根据用户信息生成token
      */
-    public String generateToken(User user) {
+    public String generateToken(AuthUser user) {
         Map<String, Object> claims = new HashMap<>();
-        claims.put(CLAIM_KEY_USERNAME, user.getUserName());
+        claims.put(CLAIM_KEY_USERNAME, user.getOpenId());
         claims.put(CLAIM_KEY_CREATED, new Date());
         return generateToken(claims);
     }

@@ -11,17 +11,22 @@ import lombok.Data;
  */
 @Data
 public class CommonResult<T> {
-    private String code;
+    private String code = "200";
     private String message;
     private T data;
 
-    protected CommonResult() {
+    public CommonResult() {
     }
 
-    protected CommonResult(String code, String message, T data) {
+    public CommonResult(String code, String message, T data) {
         this.code = code;
         this.message = message;
         this.data = data;
+    }
+
+    public CommonResult(String code, String message) {
+        this.code = code;
+        this.message = message;
     }
 
     /**
@@ -29,9 +34,18 @@ public class CommonResult<T> {
      *
      * @param data 获取的数据
      */
-    public static <T> CommonResult<T> success(T data) {
+    public <T> CommonResult<T> success(T data) {
         return new CommonResult<T>(ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getMessage(), data);
     }
+
+    /**
+     * 成功返回结果
+     *
+     */
+    public CommonResult success() {
+        return new CommonResult<T>(ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getMessage());
+    }
+
 
     /**
      * 成功返回结果

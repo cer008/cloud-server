@@ -3,17 +3,24 @@ server:
 spring:
   application:
     name: eureka-client-auth
+  datasource:
+    druid:
+      url: jdbc:mysql://122.51.76.113:3306/cloud_server?useUnicode=true&characterEncoding=UTF8&serverTimezone=Asia/Shanghai
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: 123456
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8001/eureka/
 
 jwt:
-  tokenHeader: Authorization #JWT´æ´¢µÄÇëÇóÍ·
-  secret: mySecret #JWT¼Ó½âÃÜÊ¹ÓÃµÄÃÜÔ¿
-  expiration: 604800 #JWTµÄ³¬ÆÚÏÞÊ±¼ä(60*60*24)
-  tokenHead: Bearer  #JWT¸ºÔØÖÐÄÃµ½¿ªÍ·
+  tokenHeader: Authorization #JWTï¿½æ´¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·
+  secret: mySecret #JWTï¿½Ó½ï¿½ï¿½ï¿½Ê¹ï¿½Ãµï¿½ï¿½ï¿½Ô¿
+  expiration: 604800 #JWTï¿½Ä³ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½(60*60*24)
+  tokenHead: Bearer  #JWTï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½Í·
 
 weChat:
   appid: wx8107a41cd673ced0
   secret: 15bfbab49733741ebb286b84bc21004d
+

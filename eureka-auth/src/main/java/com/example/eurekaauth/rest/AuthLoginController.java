@@ -1,8 +1,8 @@
 package com.example.eurekaauth.rest;
 
 import com.example.eurekaauth.common.CommonResult;
+import com.example.eurekaauth.entity.AuthUser;
 import com.example.eurekaauth.service.WeChatLoginService;
-import com.example.eurekaauth.vo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +15,7 @@ public class AuthLoginController
 
     @PostMapping("/login")
     @ResponseBody
-    public CommonResult login(@RequestBody User user) throws Exception
+    public CommonResult login(@RequestBody AuthUser user) throws Exception
     {
         return weChatLoginService.wxLogin(user);
     }
