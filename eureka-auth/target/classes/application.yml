@@ -3,6 +3,12 @@ server:
 spring:
   application:
     name: eureka-client-auth
+  datasource:
+    druid:
+      url: jdbc:mysql://122.51.76.113:3306/cloud_server?useUnicode=true&characterEncoding=UTF8&serverTimezone=Asia/Shanghai
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: 123456
 eureka:
   client:
     serviceUrl:
@@ -17,3 +23,4 @@ jwt:
 weChat:
   appid: wx8107a41cd673ced0
   secret: 15bfbab49733741ebb286b84bc21004d
+
