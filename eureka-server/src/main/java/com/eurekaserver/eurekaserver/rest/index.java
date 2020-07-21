@@ -86,6 +86,7 @@ public class index {
             }
         });
         thread.start();
+        thread.isInterrupted();
 
         while (testData.num == 0){
 //            try {
