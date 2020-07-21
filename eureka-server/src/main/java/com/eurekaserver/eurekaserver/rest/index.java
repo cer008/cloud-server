@@ -63,14 +63,14 @@ public class index {
 
 
     public static class TestData {
-        int num = 0;
+        volatile int num = 0;
         public void updateNum(){
             num = 1;
         }
     }
 
     public static void main(String[] args) {
-        final TestData testData = new TestData();
+        TestData testData = new TestData();
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
