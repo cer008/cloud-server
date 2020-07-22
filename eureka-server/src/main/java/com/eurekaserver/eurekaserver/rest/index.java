@@ -1,6 +1,7 @@
 package com.eurekaserver.eurekaserver.rest;
 
 import com.eurekaserver.eurekaserver.vo.User;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,9 +14,15 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
+@Slf4j
 public class index {
     @RequestMapping("/index")
-    public String index() {
+    public String index() throws Exception {
+        log.info("-----------info---------------");
+        Exception exception = new Exception();
+//        if(true){
+//            throw exception;
+//        }
         return "lcj";
     }
 
@@ -108,7 +115,7 @@ public class index {
 
 
 
-    @PostConstruct
+    //@PostConstruct
     void init() {
         User user = new User();
         new Thread(() -> {
