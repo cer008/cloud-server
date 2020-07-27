@@ -1,6 +1,7 @@
 package com.eurekaserver.eurekaserver.aop;
 
 
+import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -32,7 +33,9 @@ public class SystemLogAspect {
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
         String methodName = joinPoint.getSignature().getName();
         long startTimeMillis = System.currentTimeMillis();
-        log.info("Method Name : [ {} ] ---> args : [ {} ] ---> start", methodName, joinPoint.getArgs());
+        //遇到文件上传下载等,报错
+        //JSON.toJSONString(joinPoint.getArgs());
+        log.info("Method Name : [ {} ] ---> args : [ {} ] ---> start", methodName,joinPoint.getArgs() );
         Object proceed = joinPoint.proceed();
         log.info("Method Name : [{}] ---> exec time millis : {}", methodName, System.currentTimeMillis() - startTimeMillis);
         return proceed;

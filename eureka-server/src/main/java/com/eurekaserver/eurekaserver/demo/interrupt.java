@@ -16,4 +16,15 @@ public class interrupt {
         boolean interrupted = Thread.interrupted();
         System.out.println("当前线程（main）中断 - " + Thread.currentThread().isInterrupted());
     }
+
+
+    public static class userThread extends Thread{
+        @Override
+        public void run() {
+            while (!isInterrupted()){
+                System.out.println(Thread.currentThread().getName());
+            }
+            System.out.println(Thread.currentThread().getName());
+        }
+    }
 }
